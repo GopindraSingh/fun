@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROJECT</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0072ff, #00c6ff);
+            color: #fff;
+            text-align: center;
+            padding: 30px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 36px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .developer-column {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        .developer {
+            text-align: center;
+            margin: 0 30px;
+            transition: transform 0.3s ease;
+        }
+
+        .developer:hover {
+            transform: translateY(-5px);
+        }
+
+        .developer img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .developer p {
+            font-size: 20px;
+            font-weight: 600;
+            color: #333;
+            margin: 0;
+        }
+
+        .calculator {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        input[type="number"] {
+            width: 120px;
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            transition: border-color 0.3s ease;
+            font-size: 16px;
+        }
+
+        input[type="number"]:focus {
+            outline: none;
+            border-color: #007bff;
+        }
+
+        input[type="button"] {
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #0072ff, #00c6ff);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            font-size: 16px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="button"]:hover {
+            background: linear-gradient(135deg, #0056b3, #00a0cc);
+        }
+
+        .output-images {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .output-images img {
+            margin: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .output-images img:hover {
+            transform: scale(1.1);
+        }
+
+        .circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+        }
+
+        .rectangle {
+            width: 240px;
+            height: 120px;
+        }
+
+        .project-label {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .social-icons {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            margin: 0 10px;
+            color: #333;
+            font-size: 24px;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #007bff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>Calculator</h1>
+    </div>
+
+    <div class="developer-column">
+        <div class="developer">
+            <img src="gopindra_image.jpg" alt="Gopindra Singh">
+            <p>Gopindra Singh</p>
+        </div>
+
+        <div class="developer">
+            <img src="faisal.jpg" alt="Faisal Ali">
+            <p>Faisal Ali</p>
+        </div>
+    </div>
+
+    <div class="calculator">
+        <p class="project-label">This is the final year project</p>
+        <input type="number" id="num1" placeholder="Enter number">
+        <input type="number" id="num2" placeholder="Enter number">
+        <input type="button" value="Calculate" onclick="calculate()">
+        <div class="output-images" id="outputImages"></div>
+    </div>
+
+    <div class="social-icons">
+        <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+
+    <script>
+        function calculate() {
+            var num1 = parseFloat(document.getElementById('num1').value);
+            var num2 = parseFloat(document.getElementById('num2').value);
+            var sum = num1 + num2;
+            var outputImages = document.getElementById('outputImages');
+            outputImages.innerHTML = ''; // Clear previous images
+
+            // Create new images
+            var image1 = document.createElement('img');
+            image1.src = 'output_image1.png';
+            image1.alt = 'Output Image 1';
+            image1.classList.add('circle');
+
+            var image2 = document.createElement('img');
+            image2.src = 'output_image2.gif';
+            image2.alt = 'Output Image 2';
+            image2.classList.add('rectangle');
+
+            outputImages.appendChild(image1);
+            outputImages.appendChild(image2);
+        }
+    </script>
+
+</body>
+
+</html>
